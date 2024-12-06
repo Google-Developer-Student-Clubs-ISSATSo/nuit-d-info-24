@@ -446,7 +446,7 @@ export function AnatomyDiagram() {
 
         {/* Organ Clickable Areas */}
       </svg>
-      {ORGANS.map((organ) => (
+      {ORGANS.map((organ, index) => (
         <Fragment key={organ.id}>
           {organ.svgImportPath && (
             <div
@@ -456,6 +456,7 @@ export function AnatomyDiagram() {
                 top: `${organ.position.y}em`,
                 width: `${organ.position.width}em`,
                 height: `${organ.position.height}em`,
+                zIndex: index,
               }}
             >
               <Image

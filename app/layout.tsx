@@ -1,5 +1,11 @@
+import { cn } from "@/lib/utils";
 import "./globals.css";
 import { AnimatePresence } from "framer-motion";
+import { Poppins } from "next/font/google";
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "Ocean & Human Parallels",
@@ -13,7 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-b from-[#1A374D] to-[#406882] text-white">
+      <body
+        className={cn(
+          "bg-gradient-to-b from-[#1A374D] to-[#406882] text-white",
+          poppins.className
+        )}
+      >
         <AnimatePresence mode="wait">{children}</AnimatePresence>
       </body>
     </html>
