@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Acceuil", href: "/" },
@@ -15,13 +16,13 @@ const navItems = [
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const pathName = usePathname();
   return (
     <motion.nav
-    className="text-white-500 sticky top-0 left-0 pt-4  backdrop-blur-sm z-20"
+    className={`text-white-500 sticky top-0 left-0  ${pathName == "/" ? "pt-4 backdrop-blur-sm"  :  "bg-[#1A374D]"} w-full  z-20 `}
     initial={{ opacity: 0, y: -50 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.75 }}
+    transition={{ duration: 0.5 }}
   >
     {/* <nav className={`text-white-500 sticky top-0 left-0 pt-4  backdrop-blur-sm z-20`}> */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
