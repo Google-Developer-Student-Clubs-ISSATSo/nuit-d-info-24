@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { OrganModal } from "./OrganModal";
 import { ORGANS, Organ } from "@/lib/organ-data";
 import Image from "next/image";
-import humanAnatomy from "@/public/images/humananatomy.svg";
+import { cn } from "@/lib/utils";
 
 export function AnatomyDiagram() {
   const [selectedOrgan, setSelectedOrgan] = useState<Organ | null>(null);
@@ -445,25 +445,34 @@ export function AnatomyDiagram() {
         </svg>
 
         {/* Organ Clickable Areas */}
-        {ORGANS.map((organ) => (
-          <g
-            key={organ.id}
-            className="cursor-pointer hover:opacity-70 transition-opacity"
-            onClick={() => handleOrganClick(organ)}
-          >
-            {organ.svgPath && (
-              <path
-                d={organ.svgPath.d}
-                transform={organ.svgPath.transform}
-                fill="rgba(255,0,0,0.3)"
-                stroke="red"
-                strokeWidth="2"
-              />
-            )}
-          </g>
-        ))}
       </svg>
-
+      {ORGANS.map((organ) => (
+        <>
+          {organ.svgImportPath && (
+            <Image
+              key={organ.id}
+              onClick={(e) => handleOrganClick(organ)}
+              className={cn(
+                "cursor-pointer hover:opacity-70 transition-opacity"
+              )}
+              style={{
+                position: "absolute",
+                left: `${organ.position.x}%`,
+                top: `${organ.position.y}%`,
+                width: `${organ.position.width}%`,
+                height: `${organ.position.height}%`,
+                transform: organ.position.rotation
+                  ? `rotate(${organ.position.rotation}deg)`
+                  : undefined,
+              }}
+              src={organ.svgImportPath}
+              width={0}
+              height={0}
+              alt="Organ image"
+            />
+          )}
+        </>
+      ))}
       <OrganModal
         organ={selectedOrgan}
         open={!!selectedOrgan}
