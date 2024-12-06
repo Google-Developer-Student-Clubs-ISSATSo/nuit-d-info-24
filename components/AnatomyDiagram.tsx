@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { OrganModal } from "./OrganModal";
 import { ORGANS, Organ } from "@/lib/organ-data";
 import Image from "next/image";
@@ -446,32 +446,37 @@ export function AnatomyDiagram() {
 
         {/* Organ Clickable Areas */}
       </svg>
-      {ORGANS.map((organ, index) => (
-        <div key={index}>
+      {ORGANS.map((organ) => (
+        <Fragment key={organ.id}>
           {organ.svgImportPath && (
-            <Image
-              key={organ.id}
-              onClick={(e) => handleOrganClick(organ)}
-              className={cn(
-                "cursor-pointer hover:opacity-70 transition-opacity"
-              )}
+            <div
+              className="absolute"
               style={{
-                position: "absolute",
-                left: `${organ.position.x}%`,
-                top: `${organ.position.y}%`,
-                width: `${organ.position.width}%`,
-                height: `${organ.position.height}%`,
-                transform: organ.position.rotation
-                  ? `rotate(${organ.position.rotation}deg)`
-                  : undefined,
+                left: `${organ.position.x}em`,
+                top: `${organ.position.y}em`,
+                width: `${organ.position.width}em`,
+                height: `${organ.position.height}em`,
               }}
-              src={organ.svgImportPath}
-              width={0}
-              height={0}
-              alt="Organ image"
-            />
+            >
+              <Image
+                onClick={(e) => handleOrganClick(organ)}
+                className={cn(
+                  "w-full h-full object-contain cursor-pointer hover:opacity-70 transition-opacity"
+                )}
+                style={{
+                  transform: organ.position.rotation
+                    ? `rotate(${organ.position.rotation}deg)`
+                    : undefined,
+                }}
+                src={organ.svgImportPath}
+                alt={organ.name}
+                width={0}
+                height={0}
+                unoptimized
+              />
+            </div>
           )}
-        </div>
+        </Fragment>
       ))}
       <OrganModal
         organ={selectedOrgan}
