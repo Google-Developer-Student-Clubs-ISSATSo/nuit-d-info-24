@@ -19,7 +19,7 @@ export default function Nav() {
   const pathName = usePathname();
   return (
     <motion.nav
-      className={`text-white-500 sticky top-0 left-0  ${pathName == "/" ? "pt-4 backdrop-blur-sm" : "bg-[#1A374D]"} w-full  z-20 `}
+      className={`text-white-500 sticky top-0 left-0  ${pathName == "/" ? "pt-4 backdrop-blur-sm" : "bg-[#1F86AA]"} w-full  z-20 `}
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
