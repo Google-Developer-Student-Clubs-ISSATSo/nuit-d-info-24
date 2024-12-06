@@ -27,6 +27,7 @@ export function OrganModal({ organ, open, onOpenChange }: OrganModalProps) {
         method: "POST",
         body: JSON.stringify({
           corps_name: organ?.name.toLowerCase(),
+          previous_responses: []
         }),
         headers: {
           "Content-Type": "application/json",
@@ -34,8 +35,10 @@ export function OrganModal({ organ, open, onOpenChange }: OrganModalProps) {
           "allow-origin": "*",
         },
       })
-        .then((response) => response.json())
+        .then((response) => { console.log(response);
+          return response.json()})
         .then((data) => {
+          console.log(data);
           setResponse(data.response);
         });
     } catch (error) {
