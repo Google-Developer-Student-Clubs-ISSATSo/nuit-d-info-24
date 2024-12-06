@@ -23,7 +23,7 @@ export default function VideoPlayer() {
   const [progress, setProgress] = useState(50);
 
   return (
-    <div className="min-h-screen bg-[#0093B7] p-4 md:p-8">
+    <div className="min-h-screen bg-black p-4 md:p-8">
       <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-4">
@@ -52,14 +52,16 @@ export default function VideoPlayer() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="text-white hover:bg-white/20">
+                    className="text-white hover:bg-white/20"
+                  >
                     <SkipBack className="h-6 w-6" />
                   </Button>
                   <Button
                     variant="ghost"
                     size="icon"
                     className="text-white hover:bg-white/20"
-                    onClick={() => setIsPlaying(!isPlaying)}>
+                    onClick={() => setIsPlaying(!isPlaying)}
+                  >
                     {isPlaying ? (
                       <Pause className="h-6 w-6" />
                     ) : (
@@ -69,7 +71,8 @@ export default function VideoPlayer() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="text-white hover:bg-white/20">
+                    className="text-white hover:bg-white/20"
+                  >
                     <SkipForward className="h-6 w-6" />
                   </Button>
                 </div>
@@ -110,7 +113,8 @@ export default function VideoPlayer() {
           {episodes.map((episode, index) => (
             <div
               key={index}
-              className="flex border-2  rounded-2xl overflow-hidden cursor-pointer">
+              className="flex border-2  rounded-2xl overflow-hidden cursor-pointer"
+            >
               <Image
                 src={episode.thumbnail}
                 alt={episode.title}

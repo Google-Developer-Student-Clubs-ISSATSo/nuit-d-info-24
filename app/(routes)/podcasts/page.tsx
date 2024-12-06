@@ -45,8 +45,10 @@ const episodes = [
 
 export default function PodcastsPage() {
   return (
-    <div className="container py-4">
-      <h1 className="text-4xl text-center my-8">Toutes les episodes</h1>
+    <div className="container py-4 bg-[#1F86AA]">
+      <h1 className="text-4xl text-center my-8 font-bold">
+        Toutes les episodes
+      </h1>
 
       <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8 px-[100px]">
         {episodes.map((episode, index) => (

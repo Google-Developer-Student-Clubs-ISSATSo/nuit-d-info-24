@@ -20,8 +20,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn("bg-gradient-to-b from-[#1A374D] to-[#406882] text-white", poppins.className)}>
-        <Nav/>
+      <body className={cn("bg-[#1F86AA] text-white", poppins.className)}>
+        <Nav />
         <AnimatePresence mode="wait">{children}</AnimatePresence>
       </body>
     </html>
