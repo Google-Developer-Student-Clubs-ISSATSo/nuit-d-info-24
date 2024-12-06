@@ -1,12 +1,13 @@
-import React from 'react';
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogDescription, 
-  DialogHeader, 
-  DialogTitle 
+"use client";
+import React, { useEffect, useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
 } from "@/components/ui/dialog";
-import { Organ } from '@/lib/organ-data';
+import { Organ } from "@/lib/organ-data";
 
 interface OrganModalProps {
   organ: Organ | null;
@@ -14,12 +15,39 @@ interface OrganModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
-export function OrganModal({ 
-  organ, 
-  open, 
-  onOpenChange 
-}: OrganModalProps) {
+export function OrganModal({ organ, open, onOpenChange }: OrganModalProps) {
   if (!organ) return null;
+  const [response, setResponse] = useState("");
+
+  function handleOpen() {
+    try {
+      fetch(`https://nuit-info-2024.onrender.com/ocean_equivalence`, {
+        method: "POST",
+        body: JSON.stringify({
+          corps_name: organ?.name.toLowerCase(),
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          "cross-origin": "true",
+          "allow-origin": "*",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setResponse(data.response);
+        });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  useEffect(() => {
+    if (open) {
+      handleOpen();
+    } else {
+      console.log("closing");
+    }
+  }, []);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -31,22 +59,20 @@ export function OrganModal({
               {organ.oceanMetaphor.frenchTitle}
             </span>
           </DialogTitle>
-          <DialogDescription>
-            {organ.description}
-          </DialogDescription>
+          <DialogDescription>{organ.description}</DialogDescription>
         </DialogHeader>
-        
+
         <div className="grid gap-4 py-4 text-primary">
           <div>
             <h3 className="font-semibold text-lg text-black">Fonction</h3>
-            <p className='text-black'>{organ.function}</p>
+            <p className="text-black">{organ.function}</p>
           </div>
-          
+
           <div>
             <h3 className="font-semibold text-lg text-black">Location</h3>
-            <p className='text-black'>{organ.location}</p>
+            <p className="text-black">{organ.location}</p>
           </div>
-          
+
           <div>
             <h3 className="font-semibold text-lg text-black">Faits amusants</h3>
             <ul className="list-disc list-inside space-y-2">
@@ -59,7 +85,9 @@ export function OrganModal({
           </div>
 
           <div className="mt-4">
-            <h3 className="font-semibold text-lg text-black">Métaphore de l'océan</h3>
+            <h3 className="font-semibold text-lg text-black">
+              Métaphore de l'océan
+            </h3>
             <div className="bg-blue-50 p-3 rounded-lg">
               <h4 className="font-medium text-blue-800">
                 {organ.oceanMetaphor.oceanConnection}
