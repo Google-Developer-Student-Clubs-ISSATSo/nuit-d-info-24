@@ -12,7 +12,6 @@ const navItems = [
   { name: "Simulation", href: "/human" },
   { name: "Podcasts", href: "/podcasts" },
   { name: "Quiz", href: "/quiz" },
-  { name: "Game", href: "/game" },
 ];
 
 export default function Nav() {
