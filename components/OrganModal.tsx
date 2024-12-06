@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useTransition } from "react";
 import {
   Dialog,
   DialogContent,
@@ -8,6 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Organ } from "@/lib/organ-data";
+import { Button } from "./ui/button";
 
 interface OrganModalProps {
   organ: Organ | null;
@@ -16,8 +17,9 @@ interface OrganModalProps {
 }
 
 export function OrganModal({ organ, open, onOpenChange }: OrganModalProps) {
-  if (!organ) return null;
   const [response, setResponse] = useState("");
+  const [generateResult, setGenerateResult] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   function handleOpen() {
     try {
@@ -43,11 +45,14 @@ export function OrganModal({ organ, open, onOpenChange }: OrganModalProps) {
 
   useEffect(() => {
     if (open) {
-      handleOpen();
+      startTransition(() => {
+        handleOpen();
+      });
     } else {
       console.log("closing");
     }
-  }, []);
+  }, [open]);
+  if (!organ) return null;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -86,14 +91,24 @@ export function OrganModal({ organ, open, onOpenChange }: OrganModalProps) {
 
           <div className="mt-4">
             <h3 className="font-semibold text-lg text-black">
-              Métaphore de l'océan
+              Métaphore de l'océan{" "}
+              {response ? (
+                <Button onClick={() => setGenerateResult(!generateResult)}>
+                  {generateResult ? "Hide" : "Generate"} AI Result
+                </Button>
+              ) : null}
             </h3>
             <div className="bg-blue-50 p-3 rounded-lg">
               <h4 className="font-medium text-blue-800">
                 {organ.oceanMetaphor.oceanConnection}
               </h4>
+
               <p className="text-sm text-blue-700 italic">
-                {response ? response : organ.oceanMetaphor.marineSimilarity}
+                {generateResult
+                  ? isPending
+                    ? "loading..."
+                    : response
+                  : organ.oceanMetaphor.marineSimilarity}
               </p>
             </div>
           </div>
