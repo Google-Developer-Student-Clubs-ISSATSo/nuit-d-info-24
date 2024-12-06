@@ -30,22 +30,22 @@ export function OrganModal({
           </DialogDescription>
         </DialogHeader>
         
-        <div className="grid gap-4 py-4">
+        <div className="grid gap-4 py-4 text-primary">
           <div>
-            <h3 className="font-semibold text-lg">Function</h3>
-            <p>{organ.function}</p>
+            <h3 className="font-semibold text-lg text-black">Function</h3>
+            <p className='text-black'>{organ.function}</p>
           </div>
           
           <div>
-            <h3 className="font-semibold text-lg">Location</h3>
-            <p>{organ.location}</p>
+            <h3 className="font-semibold text-lg text-black">Location</h3>
+            <p className='text-black'>{organ.location}</p>
           </div>
           
           <div>
-            <h3 className="font-semibold text-lg">Fun Facts</h3>
+            <h3 className="font-semibold text-lg text-black">Fun Facts</h3>
             <ul className="list-disc list-inside space-y-2">
               {organ.funFacts.map((fact, index) => (
-                <li key={index} className="text-sm">
+                <li key={index} className="text-sm text-black">
                   {fact}
                 </li>
               ))}
