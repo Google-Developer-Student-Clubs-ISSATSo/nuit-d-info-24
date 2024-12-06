@@ -12,11 +12,13 @@ type OrganInfo = {
 const organs: Record<string, OrganInfo> = {
   heart: {
     title: "Heart ↔ Ocean Currents",
-    description: "The circulatory system mirrors the thermohaline circulation of ocean currents.",
+    description:
+      "The circulatory system mirrors the thermohaline circulation of ocean currents.",
   },
   lungs: {
     title: "Lungs ↔ Gas Exchange",
-    description: "Like lungs, oceans exchange gases through photosynthesis and CO₂ absorption.",
+    description:
+      "Like lungs, oceans exchange gases through photosynthesis and CO₂ absorption.",
   },
 };
 
@@ -33,11 +35,11 @@ export default function HumanBody() {
         <ambientLight intensity={0.5} />
         <mesh onClick={() => handleClick("heart")} position={[-1, 1, 0]}>
           <sphereGeometry args={[0.2, 32, 32]} />
-          <meshStandardMaterial  />
+          <meshStandardMaterial />
         </mesh>
         <mesh onClick={() => handleClick("lungs")} position={[1, 1, 0]}>
           <sphereGeometry args={[0.3, 32, 32]} />
-          <meshStandardMaterial  />
+          <meshStandardMaterial />
         </mesh>
       </Canvas>
       {selectedOrgan && (
