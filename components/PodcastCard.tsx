@@ -1,23 +1,35 @@
-import { div } from "framer-motion/client";
 import { CirclePlay } from "lucide-react";
 import Image from "next/image";
 
-export default function PodcastCard(){
-    return(
-        
-        <div className = "box border-[solid] border-[1px] border-[red] grid grid-cols-[repeat(auto-fill,minmax(450px,1fr))]  gap-[20px] ">
-            <Image
-                  src="/images/lungs.png"
-                  width={65}
-                  height={100}
-                  alt="Aqua Echo logo"
-                />
-            <div className = {"textContent"}>
-                <h1 className  = {"title"}>Episode 1</h1>
-                <p className = {"paragraph"}>DescriptionDescriptionDescriptionDescriptionDescriptionDescription</p>
-                <CirclePlay/>
-            </div>
+interface PodcastCardProps {
+  episode: {
+    imageSrc: string;
+    title: string;
+    description: string;
+  };
+}
+
+export default function PodcastCard({ episode }: PodcastCardProps) {
+  return (
+    <div className="box w-[249px] bg-[#F5F5DD] rounded-[20px] overflow-hidden">
+      <Image
+        src={episode.imageSrc}
+        width={249}
+        height={214}
+        alt={`${episode.title} logo`}
+      />
+      <div className="textContent">
+        <h1 className="title my-2 pl-7 text-[black] font-bold">
+          {episode.title}
+        </h1>
+        <div className="description pb-4 px-7 flex w-full items-center justify-between">
+          <p className="paragraph w-full text-[black]  block">
+            {episode.description}
+          </p>
+
+          <CirclePlay className="inline" size={48} color="black" />
         </div>
-        
-    )
+      </div>
+    </div>
+  );
 }
