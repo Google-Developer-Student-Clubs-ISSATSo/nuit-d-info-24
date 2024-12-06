@@ -93,7 +93,7 @@ export function OrganModal({ organ, open, onOpenChange }: OrganModalProps) {
                 {organ.oceanMetaphor.oceanConnection}
               </h4>
               <p className="text-sm text-blue-700 italic">
-                {organ.oceanMetaphor.marineSimilarity}
+                {response ? response : organ.oceanMetaphor.marineSimilarity}
               </p>
             </div>
           </div>
