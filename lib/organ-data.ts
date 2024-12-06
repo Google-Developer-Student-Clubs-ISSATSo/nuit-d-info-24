@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import heartImage from "@/public/images/Heart.svg";
 import liverImage from "@/public/images/Liver.svg";
 import brainImage from "@/public/images/Brain.svg";
