@@ -3,7 +3,7 @@ import Image from "next/image";
 
 interface PodcastCardProps {
   episode: {
-    imageSrc: string;
+    thumbail: string;
     title: string;
     description: string;
   };
@@ -11,18 +11,18 @@ interface PodcastCardProps {
 
 export default function PodcastCard({ episode }: PodcastCardProps) {
   return (
-    <div className="box w-[249px] bg-[#F5F5DD] rounded-[20px] overflow-hidden">
+    <div className="box w-[300px] bg-[#F5F5DD] rounded-[20px] overflow-hidden">
       <Image
-        src={episode.imageSrc}
-        width={249}
-        height={214}
+        src={episode.thumbail}
+        width={300}
+        height={300}
         alt={`${episode.title} logo`}
       />
       <div className="textContent">
-        <h1 className="title my-2 pl-7 text-[black] font-bold">
+        <h1 className="title my-2 pl-7 text-xl   text-[black] font-bold">
           {episode.title}
         </h1>
-        <div className="description pb-4 px-7 flex w-full items-center justify-between">
+        <div className="description pb-4 px-7 flex w-full items-center gap-1 justify-between">
           <p className="paragraph w-full text-[black]  block">
             {episode.description}
           </p>
