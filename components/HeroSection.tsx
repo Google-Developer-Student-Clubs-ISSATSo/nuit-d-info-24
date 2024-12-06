@@ -11,9 +11,9 @@ const HeroSection = () => {
           Bienvenue sur AquaEcho
         </h1>
         <p className="pr-8 leading-7">
-          Un site qui explore la connexion unique entre l'océan et le corps
+          Un site qui explore la connexion unique entre l&apos;océan et le corps
           humain. Découvrez comment ces deux mondes se ressemblent et
-          s’entrelacent à travers des comparaisons fascinantes et des
+          s&apos;entrelacent à travers des comparaisons fascinantes et des
           visualisations captivantes.
         </p>
         <Link href="/human" className="w-full">

@@ -460,7 +460,7 @@ export function AnatomyDiagram() {
               }}
             >
               <Image
-                onClick={(e) => handleOrganClick(organ)}
+                onClick={() => handleOrganClick(organ)}
                 className={cn(
                   "w-full h-full object-contain cursor-pointer hover:opacity-70 transition-opacity"
                 )}

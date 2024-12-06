@@ -14,7 +14,7 @@ const AboutSection = () => {
     >
       <h2 className="text-3xl font-bold text-[#F4A261]">About the Challenge</h2>
       <p className="mt-4 text-lg text-[#6998AB] max-w-3xl mx-auto">
-        The ocean is Earth's lifeline, mirroring the systems within our own bodies. 
+        The ocean is Earth&apos;s lifeline, mirroring the systems within our own bodies. 
         From the flow of ocean currents to the oxygen exchange, explore how our health is intricately connected to a healthy ocean.
       </p>
     </motion.section>

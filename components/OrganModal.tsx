@@ -91,7 +91,7 @@ export function OrganModal({ organ, open, onOpenChange }: OrganModalProps) {
 
           <div className="mt-4">
             <h3 className="font-semibold text-lg text-black">
-              Métaphore de l'océan{" "}
+              Métaphore de l&apos;océan{" "}
               {response ? (
                 <Button onClick={() => setGenerateResult(!generateResult)}>
                   {generateResult ? "Hide" : "Generate"} AI Result

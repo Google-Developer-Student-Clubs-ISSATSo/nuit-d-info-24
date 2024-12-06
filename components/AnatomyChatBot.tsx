@@ -31,9 +31,9 @@ export function AnatomyChatbot() {
   }, [messages]);
 
     function getPreviousResponses(messages: ChatMessage[]) {
-        let userMessages = messages.filter((msg) => msg.sender === 'user');
-        let botMessages = messages.filter((msg) => msg.sender === 'bot');
-        let responses = [];
+        const userMessages = messages.filter((msg) => msg.sender === 'user');
+        const botMessages = messages.filter((msg) => msg.sender === 'bot');
+        const responses = [];
         for (let i = 0; i < userMessages.length; i++) {
             responses.push({ role: 'human', content: userMessages[i].text });
             responses.push({ role: 'assistant', content: botMessages[i].text });

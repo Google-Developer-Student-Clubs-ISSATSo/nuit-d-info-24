@@ -20,7 +20,7 @@ const episodes: Episode[] = Array(5).fill({
 
 export default function VideoPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(50);
+  const [progress, _] = useState(50);
 
   return (
     <div className="min-h-screen bg-black p-4 md:p-8">
