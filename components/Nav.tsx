@@ -19,17 +19,20 @@ export default function Nav() {
   const pathName = usePathname();
   return (
     <motion.nav
-    className={`text-white-500 sticky top-0 left-0  ${pathName == "/" ? "pt-4 backdrop-blur-sm"  :  "bg-[#1A374D]"} w-full  z-20 `}
-    initial={{ opacity: 0, y: -50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    {/* <nav className={`text-white-500 sticky top-0 left-0 pt-4  backdrop-blur-sm z-20`}> */}
+      className={`text-white-500 sticky top-0 left-0  ${pathName == "/" ? "pt-4 backdrop-blur-sm" : "bg-[#1A374D]"} w-full  z-20 `}
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* <nav className={`text-white-500 sticky top-0 left-0 pt-4  backdrop-blur-sm z-20`}> */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 w-full">
           <div className="flex items-center justify-between w-full">
             <div className="flex-shrink-0">
-              <Link href="/" className="text-2xl font-bold text-white-500 flex   items-center">
+              <Link
+                href="/"
+                className="text-2xl font-bold text-white-500 flex   items-center"
+              >
                 <Image
                   src="/images/logoAquaEcho.png"
                   width={65}
@@ -46,7 +49,8 @@ export default function Nav() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className=" px-3 py-2 rounded-md text-sm font-medium hover:underline">
+                    className=" px-3 py-2 rounded-md text-sm font-medium hover:underline"
+                  >
                     {item.name}
                   </Link>
                 ))}
@@ -57,7 +61,8 @@ export default function Nav() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-white-500 focus:outline-none focus:ring-2 focus:ring-inset "
-              aria-expanded="false">
+              aria-expanded="false"
+            >
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
                 <X className="block h-6 w-6" aria-hidden="true" />
@@ -77,7 +82,8 @@ export default function Nav() {
                 key={item.name}
                 href={item.href}
                 className=" block px-3 py-2 rounded-md text-base  font-medium"
-                onClick={() => setIsOpen(false)}>
+                onClick={() => setIsOpen(false)}
+              >
                 {item.name}
               </Link>
             ))}

@@ -2,24 +2,23 @@
 
 import Link from "next/link";
 import { Button } from "./ui/button";
-import Image from "next/image";
 
 const HeroSection = () => {
   return (
     <div className="w-screen px-10  pt-[140px] flex">
-      <section className="lg:w-[40vw] flex flex-col gap-4   pt-10">
-        <h1 className="text-4xl  ">
-          Bienvenue sur <span className="text-[#F4A261]">AquaEcho</span>
+      <section className="lg:w-[40vw] flex flex-col gap-9 pt-10">
+        <h1 className="text-4xl font-[800] leading-10 bg-clip-text text-transparent bg-gradient-to-r from-white to-[#D2714D]">
+          Bienvenue sur AquaEcho
         </h1>
         <p className="pr-8 leading-7">
-          Découvrez les liens fascinants entre le corps humain et l’océan.
-          Explorez comment ces deux mondes se ressemblent et s’entrelacent à
-          travers des comparaisons fascinantes et des visualisations
-          captivantes.
+          Un site qui explore la connexion unique entre l'océan et le corps
+          humain. Découvrez comment ces deux mondes se ressemblent et
+          s’entrelacent à travers des comparaisons fascinantes et des
+          visualisations captivantes.
         </p>
         <Link href="/human" className="w-full">
-          <Button className="bg-[#F4A261] text-white-800 mr-16 w-full">
-            Explorer
+          <Button className="bg-[#F4A261] hover:bg-[#c17f4b] text-white-800 mr-16 rounded-xl">
+            Savoir plus
           </Button>
         </Link>
       </section>
