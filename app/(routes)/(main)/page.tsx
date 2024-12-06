@@ -16,14 +16,14 @@ export default function Home() {
       ></div>
       {/* Blue Overlay */}
       <div className="absolute -z-10   inset-0 bg-[#0083B1B2] opacity-90"></div>
-    <main className="z-20 ">
-      {/* <Nav/> */}
-       <HeroSection />
-      {/* <AboutSection />
+      <main className="z-20 ">
+        {/* <Nav/> */}
+        <HeroSection />
+        {/* <AboutSection />
       <FeaturesSection />
       <CTASection />
       <Footer /> */}
-    </main>
-  </div>
+      </main>
+    </div>
   );
 }
