@@ -1,12 +1,12 @@
 // pages/human.tsx
-import React from 'react';
-import Head from 'next/head';
-import { AnatomyDiagram } from '@/components/AnatomyDiagram';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import React from "react";
+import Head from "next/head";
+import { AnatomyDiagram } from "@/components/AnatomyDiagram";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function HumanPage() {
   return (
-    <div className="min-h-screen bg-background py-10">
+    <div className="min-h-screen bg-[#1F86AA] py-10">
       <Head>
         <title>Human Anatomy Explorer</title>
         <meta name="description" content="Interactive human body diagram" />
@@ -27,3 +27,4 @@ export default function HumanPage() {
     </div>
   );
 }
+
