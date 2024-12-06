@@ -11,9 +11,10 @@ const episodes = [
   },
   {
     id: 2,
-    thumbail: "/images/ocean2.jpg",
+    thumbail: "/images/episode1.jpg",
     title: "Episode 2",
-    description: "Description for Episode 2.",
+    description: "Race For Water - Episode 2 avec Frederic Le Moigne",
+    videoLink:"https://youtu.be/2wkiIpw9jdA",
   },
 ];
 
