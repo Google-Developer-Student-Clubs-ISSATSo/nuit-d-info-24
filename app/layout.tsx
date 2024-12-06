@@ -1,3 +1,4 @@
+import Nav from "@/components/Nav";
 import "./globals.css";
 import { AnimatePresence } from "framer-motion";
 
@@ -14,7 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gradient-to-b from-[#1A374D] to-[#406882] text-white">
-        <AnimatePresence mode="wait">{children}</AnimatePresence>
+          <Nav />
+        <AnimatePresence mode="wait">
+
+          {children}
+        </AnimatePresence>
       </body>
     </html>
   );
