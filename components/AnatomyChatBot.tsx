@@ -53,7 +53,17 @@ export function AnatomyChatbot() {
       return part; 
     });
   };
-
+  useEffect(() => {
+    if(messages.length === 0) {
+      setMessages([
+        {
+          id: Date.now(),
+          text: 'Bonjour! Je suis Anatomy Chatbot. Comment puis-je vous aider?',
+          sender: 'bot'
+        }
+      ]);
+    }
+  }, []);
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
 

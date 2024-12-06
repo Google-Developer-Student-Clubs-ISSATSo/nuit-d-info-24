@@ -1,5 +1,4 @@
 "use client";
-import { Progress } from "@radix-ui/react-progress";
 import { useState } from "react";
 
 export default function Quiz() {
